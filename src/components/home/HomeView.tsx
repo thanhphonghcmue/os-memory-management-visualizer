@@ -6,12 +6,13 @@ import {
   HardDrive,
   RefreshCw,
   ArrowRight,
-  BookOpen,
   CheckCircle,
   ExternalLink,
   ShieldCheck,
   Cpu,
+  Sparkles,
 } from 'lucide-react';
+import fitLogo from '../../assets/logo-fit.jpg';
 
 interface HomeViewProps {
   onStartDemo: (demoId: string) => void;
@@ -20,46 +21,66 @@ interface HomeViewProps {
 export const HomeView: React.FC<HomeViewProps> = ({ onStartDemo }) => {
   return (
     <div className="space-y-8 pb-12 select-none">
-      {/* Hero Banner (HCMUE Portal Banner Style) */}
+      {/* Hero Banner with FIT Logo */}
       <div className="rounded-xl bg-gradient-to-r from-[#164A73] via-[#1a5585] to-[#123d60] text-white p-6 md:p-8 shadow-md border border-[#113857] relative overflow-hidden">
         {/* Background Decorative Rings */}
         <div className="absolute right-0 top-0 translate-x-12 -translate-y-12 w-64 h-64 rounded-full bg-white/5 pointer-events-none" />
         <div className="absolute right-24 bottom-0 translate-y-16 w-80 h-80 rounded-full bg-sky-400/10 pointer-events-none" />
 
-        <div className="relative z-10 max-w-3xl">
-          <div className="inline-flex items-center space-x-2 px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-xs text-sky-200 text-xs font-semibold mb-3 border border-white/10">
-            <Cpu className="w-3.5 h-3.5 text-amber-400" />
-            <span>Môn học: Hệ Điều Hành (Operating Systems) • ĐH Sư phạm TP.HCM</span>
+        <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-white/10 backdrop-blur-xs text-sky-200 text-xs font-semibold mb-3 border border-white/10">
+              <Cpu className="w-3.5 h-3.5 text-amber-400" />
+              <span>Khoa Công nghệ Thông tin • Trường ĐH Sư phạm TP.HCM</span>
+            </div>
+
+            <h1 className="text-2xl md:text-3xl font-black tracking-tight leading-tight text-white">
+              HỆ THỐNG MÔ PHỎNG TRỰC QUAN THUẬT TOÁN QUẢN LÝ BỘ NHỚ
+            </h1>
+
+            <p className="text-xs md:text-sm text-sky-100/90 font-normal mt-2 leading-relaxed">
+              Website mô phỏng học thuật trực quan hóa 5 phân hệ quản lý bộ nhớ hệ điều hành:
+              Nền tảng, Cấp phát liên tục, Phân trang & TLB, Bộ nhớ ảo, và Thay thế trang.
+              Xây dựng dựa trên giáo trình quốc tế <strong>Operating System Concepts (10th Edition)</strong>.
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => onStartDemo('alloc-first-fit')}
+                className="flex items-center space-x-2 px-5 py-2.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-900 font-bold text-xs md:text-sm shadow-md transition-all transform hover:-translate-y-0.5"
+              >
+                <Sparkles className="w-4 h-4 text-slate-900" />
+                <span>Trải nghiệm ngay: Mô phỏng First-Fit</span>
+                <ArrowRight className="w-4 h-4 text-slate-900" />
+              </button>
+
+              <a
+                href="https://github.com/thanhphonghcmue/os-memory-management-visualizer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-1.5 px-4 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium text-xs md:text-sm border border-white/20 transition-all"
+              >
+                <span>Mã nguồn GitHub</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
 
-          <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight text-white">
-            HỆ THỐNG MÔ PHỎNG TRỰC QUAN THUẬT TOÁN QUẢN LÝ BỘ NHỚ
-          </h1>
-
-          <p className="text-sm md:text-base text-sky-100/90 font-normal mt-2 leading-relaxed">
-            Công cụ hỗ trợ giảng dạy và học tập trực quan chuẩn hóa toàn bộ 5 phân hệ quản lý bộ nhớ:
-            từ Nền tảng, Cấp phát liên tục, Phân trang & TLB, Bộ nhớ ảo cho đến Thuật toán Thay thế trang.
-            Dựa trên giáo trình chuẩn quốc tế <strong>Operating System Concepts (10th Edition)</strong>.
-          </p>
-
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <button
-              onClick={() => onStartDemo('alloc-first-fit')}
-              className="flex items-center space-x-2 px-5 py-2.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-900 font-bold text-xs md:text-sm shadow-md transition-all transform hover:-translate-y-0.5"
-            >
-              <span>Trải nghiệm ngay: Mô phỏng First-Fit</span>
-              <ArrowRight className="w-4 h-4 text-slate-900" />
-            </button>
-
-            <a
-              href="https://github.com/thanhphonghcmue/os-memory-management-visualizer"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-1.5 px-4 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium text-xs md:text-sm border border-white/20 transition-all"
-            >
-              <span>Xem mã nguồn GitHub</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+          {/* Large Emblem in Banner */}
+          <div className="hidden lg:flex flex-col items-center justify-center p-3 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/20 shadow-xl shrink-0">
+            <div className="w-28 h-28 rounded-full overflow-hidden p-1 bg-gradient-to-tr from-amber-400 via-white to-sky-300 shadow-inner">
+              <img
+                src={fitLogo}
+                alt="Logo FIT HCMUE"
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
+            <span className="text-[11px] font-bold text-amber-300 mt-2 tracking-wide uppercase">
+              FIT HCMUE • 50x16
+            </span>
+            <span className="text-[10px] text-sky-200">
+              Dấu ấn tự hào
+            </span>
           </div>
         </div>
       </div>
@@ -226,8 +247,8 @@ export const HomeView: React.FC<HomeViewProps> = ({ onStartDemo }) => {
                 <li>Dữ liệu mẫu từ giáo trình Silberschatz.</li>
               </ul>
             </div>
-            <div className="pt-4 border-t border-slate-200 text-[11px] text-slate-500">
-              HCMUE IT Department • 2026
+            <div className="pt-4 border-t border-slate-200 text-[11px] text-slate-500 font-semibold text-[#164A73]">
+              Khoa Công nghệ Thông tin • ĐH Sư phạm TP.HCM
             </div>
           </div>
         </div>

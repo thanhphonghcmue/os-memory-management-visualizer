@@ -7,11 +7,12 @@ import {
   Grid,
   HardDrive,
   RefreshCw,
-  User,
   CheckCircle2,
   Clock,
+  GraduationCap,
 } from 'lucide-react';
 import { NAVIGATION_GROUPS } from '../../data/navigation';
+import fitLogo from '../../assets/logo-fit.jpg';
 
 interface SidebarProps {
   currentDemoId: string;
@@ -74,17 +75,26 @@ export const Sidebar: React.FC<SidebarProps> = ({
           isOpenMobile ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
-        {/* User Academic Profile Card (HCMUE Portal Style) */}
+        {/* FIT HCMUE Institutional Branding Card (Replaces Personal Profile) */}
         <div className="p-3 border-b border-[#E2E8F0] bg-white">
-          <div className="flex items-center space-x-3 p-2 rounded-lg bg-slate-50 border border-slate-200/80">
-            <div className="w-10 h-10 rounded-full bg-[#164A73] flex items-center justify-center text-white font-bold text-sm shadow-xs">
-              <User className="w-5 h-5 text-sky-100" />
+          <div className="flex items-center space-x-3 p-2.5 rounded-lg bg-gradient-to-r from-sky-50/70 to-blue-50/50 border border-sky-100">
+            <div className="relative w-11 h-11 rounded-full p-0.5 bg-gradient-to-tr from-amber-400 to-[#164A73] shadow-xs shrink-0 overflow-hidden">
+              <img
+                src={fitLogo}
+                alt="Logo FIT HCMUE"
+                className="w-full h-full object-cover rounded-full"
+              />
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="text-xs font-bold text-[#1E293B] truncate">Lâm Thanh Phong</span>
-              <span className="text-[11px] font-medium text-slate-500">50.01.103.057</span>
-              <span className="text-[10px] text-[#005AA8] font-semibold truncate">
-                Sinh viên Sư phạm Tin học
+              <span className="text-xs font-black text-[#164A73] uppercase tracking-tight truncate">
+                Khoa CNTT
+              </span>
+              <span className="text-[11px] font-medium text-slate-600 truncate">
+                ĐH Sư phạm TP.HCM
+              </span>
+              <span className="inline-flex items-center space-x-1 text-[10px] text-[#005AA8] font-bold mt-0.5">
+                <GraduationCap className="w-3 h-3 text-[#005AA8]" />
+                <span>Phân hệ Mô phỏng OS</span>
               </span>
             </div>
           </div>

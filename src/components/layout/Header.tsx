@@ -1,5 +1,6 @@
 import React from 'react';
 import { Home, HelpCircle, BookOpen, Tv, Maximize2, Minimize2, ExternalLink } from 'lucide-react';
+import fitLogo from '../../assets/logo-fit.jpg';
 
 interface HeaderProps {
   currentView: string;
@@ -32,30 +33,28 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between h-16 px-4 md:px-6 bg-[#164A73] text-white shadow-md select-none border-b border-[#0d3454]">
-      {/* Brand & Academic Identity */}
-      <div className="flex items-center space-x-3 cursor-pointer" onClick={onNavigateHome}>
-        {/* Custom Stylized Academic Chip/Book Logo */}
-        <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-amber-400 to-amber-500 text-[#164A73] shadow-inner font-black text-lg">
-          <svg className="w-6 h-6 text-[#164A73]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="3" />
-            <path d="M7 7h10" />
-            <path d="M7 12h10" />
-            <path d="M7 17h6" />
-            <circle cx="17" cy="17" r="1.5" fill="currentColor" />
-          </svg>
+      {/* Brand & FIT HCMUE Logo */}
+      <div className="flex items-center space-x-3 cursor-pointer group" onClick={onNavigateHome}>
+        {/* FIT Logo from user image */}
+        <div className="relative w-11 h-11 rounded-full p-0.5 bg-gradient-to-tr from-amber-400 via-white to-sky-300 shadow-md shrink-0 overflow-hidden group-hover:scale-105 transition-transform">
+          <img
+            src={fitLogo}
+            alt="Logo FIT HCMUE"
+            className="w-full h-full object-cover rounded-full"
+          />
         </div>
 
         <div className="flex flex-col">
           <div className="flex items-center space-x-2">
-            <span className="text-base md:text-lg font-bold tracking-tight text-white uppercase">
+            <span className="text-base md:text-lg font-black tracking-tight text-white uppercase group-hover:text-amber-300 transition-colors">
               Web Demo Quản Lý Bộ Nhớ
             </span>
-            <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-semibold bg-sky-500/30 text-sky-200 rounded border border-sky-400/30">
-              HCMUE OS Concepts
+            <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-bold bg-amber-400/25 text-amber-200 rounded border border-amber-400/40 uppercase">
+              FIT HCMUE
             </span>
           </div>
           <span className="text-xs text-sky-100/80 hidden sm:inline">
-            Mô phỏng trực quan thuật toán Hệ điều hành • Khoa CNTT - Trường ĐH Sư phạm TP.HCM
+            Khoa Công nghệ Thông tin • Trường Đại học Sư phạm Thành phố Hồ Chí Minh
           </span>
         </div>
       </div>
@@ -97,10 +96,10 @@ export const Header: React.FC<HeaderProps> = ({
           onClick={onTogglePresentation}
           className={`flex items-center space-x-1 px-3 py-1.5 rounded text-xs md:text-sm font-medium transition-colors ${
             isPresentationMode
-              ? 'bg-amber-500 text-slate-900 font-bold'
+              ? 'bg-amber-400 text-slate-900 font-bold shadow-xs'
               : 'hover:bg-white/10 text-white/90'
           }`}
-          title="Chế độ thuyết trình"
+          title="Chế độ trình chiếu màn hình lớn"
         >
           <Tv className="w-4 h-4" />
           <span className="hidden lg:inline">Trình chiếu</span>
