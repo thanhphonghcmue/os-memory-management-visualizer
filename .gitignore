@@ -40,3 +40,4 @@ pnpm-debug.log*
 
 # Temporary extraction files
 extracted_*.txt
+~$*
